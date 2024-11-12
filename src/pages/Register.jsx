@@ -25,7 +25,7 @@ const Register = () => {
         onSubmit: async (values) => {
             const token = localStorage.getItem('token');
             try {
-                const response = await axios.post('http://127.0.0.1:5000/api/v1/register', values, {
+                const response = await axios.post('https://userform-backend.onrender.com/api/v1/register', values, {
                     headers: {
                         'Authorization': `Bearer ${token}`
                     }

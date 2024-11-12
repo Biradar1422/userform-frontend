@@ -21,7 +21,7 @@ const Dashboard = () => {
   useEffect(() => {
     const fetchRegisters = async () => {
       try {
-        const response = await axios.get('http://127.0.0.1:5000/api/v1/register');
+        const response = await axios.get('https://userform-backend.onrender.com/api/v1/register');
         setRegisters(response.data);
         setFilteredRegisters(response.data);
       } catch (error) {
@@ -33,7 +33,7 @@ const Dashboard = () => {
 
   const handleDelete = async (id) => {
     try {
-      await axios.delete(`http://127.0.0.1:5000/api/v1/register/${id}`);
+      await axios.delete(`https://userform-backend.onrender.com/api/v1/register/${id}`);
       setRegisters(registers.filter((register) => register._id !== id));
       setFilteredRegisters(filteredRegisters.filter((register) => register._id !== id));
       toast.success('User deleted successfully!');
@@ -58,7 +58,7 @@ const Dashboard = () => {
 
   const handleUpdate = async () => {
     try {
-      await axios.put(`http://127.0.0.1:5000/api/v1/register/${editingRegisterId}`, newRegister);
+      await axios.put(`https://userform-backend.onrender.com/api/v1/register/${editingRegisterId}`, newRegister);
       setRegisters(registers.map((register) =>
         register._id === editingRegisterId ? { ...register, ...newRegister } : register
       ));
